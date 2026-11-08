@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+<title>REQFLOW | STI College Lipa</title></head><body data-page="home">
+<header><div class="wrap nav"><a class="logo" href="#home"><b>R</b>REQFLOW</a>
+<nav class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#status">Request Status</a><a href="#contact">Contact</a></nav>
+<div class="nav-r"><span class="phone">(555) 555-0142</span><a class="btn" href="admin.html">Log In</a></div></div></header>
+<section class="hero" id="home" style="padding:0"><div class="wrap"><span class="pill">Student Document Request System</span>
+<h1>Request school documents online, skip the line</h1>
+<p>Submit document requests from your laptop or phone, track status in real time, and get SMS updates when your papers are ready for release.</p>
+<div class="btns"><a class="btn white" href="#request">Submit a Request</a><a class="btn ghost" href="#status">Check Request Status</a></div></div></section>
+
+<section class="tint" id="request"><div class="wrap two"><div><div class="eyebrow"></div><h2>Submit a document request</h2>
+<p class="lead">Fill out the form. You will get a Request ID to track your document.</p>
+<ul class="doclist" id="docList"></ul>
+<div class="cashier">Payment is made directly at the school cashier. There is no online payment.</div></div>
+<div class="card"><div class="success hidden" id="success"><strong>Request submitted!</strong><div class="rid"><span id="newId"></span><button class="btn sm" type="button" id="copyBtn">Copy ID</button></div>
+<p class="small" style="margin:.4rem 0 0">Save this ID. You need it to check your status.</p></div>
+<form id="requestForm" novalidate>
+<label for="name" style="margin-top:0">Student name</label><input id="name" placeholder="Juan Dela Cruz" autocomplete="name"><div class="err"></div>
+<label for="sid">Student ID</label><input id="sid" placeholder="2024-00123"><div class="err"></div>
+<label for="program">Program</label><input id="program" placeholder="BS Information Technology"><div class="err"></div>
+<label for="doc">Document needed</label><select id="doc"></select><div class="err"></div>
+<p class="small" style="margin:.5rem 0 0">Fee: <strong id="fee">-</strong> (pay at the cashier)</p>
+<label for="purpose">Purpose of request</label><textarea id="purpose" rows="3" placeholder="e.g. Scholarship Application"></textarea><div class="err"></div>
+<label for="contact">Phone number</label><input id="contact" inputmode="tel" placeholder="09171234567"><div class="err"></div>
+<button class="btn full" type="submit">Submit Request</button></form></div></div></section>
+
+<section id="status"><div class="wrap two"><div><div class="eyebrow"></div><h2>Check your request status</h2>
+<p class="lead">Enter the Request ID you received after submitting to see where your document is.</p>
+<form id="trackForm" novalidate style="margin-top:1.6rem"><label for="rid" style="margin-top:0">Request ID</label>
+<div class="statusrow"><div><input id="rid" placeholder="REQ-001"><div class="err"></div></div><button class="btn" style="padding:.8rem 1.2rem" type="submit">Check status</button></div></form>
+<div class="result hidden" id="result"></div></div>
+<div class="card"><h3 style="font-size:1.25rem">How a request moves forward</h3><p class="small">Enter your request ID to see where your document is right now.</p>
+<div class="timeline" id="timeline">
+<div><span class="dot">&#9201;</span><b>Pending</b>Request received and waiting for review.</div>
+<div><span class="dot">&#128260;</span><b>Processing</b>Staff are preparing your document.</div>
+<div><span class="dot">&#128230;</span><b>Ready for Release</b>Your document can be picked up at the school.</div>
+<div><span class="dot">&#10003;</span><b>Completed</b>The document was released and the request is closed.</div></div></div></div></section>
+
+<section class="soft" id="services"><div class="wrap"><div class="eyebrow"></div><h2>Everything you need in one system</h2>
+<p class="lead">Built for students and school staff to keep every request clear and on track.</p>
+<div class="feat">
+<div class="fc hl s4"><div class="ic">&#128221;</div><h3>Online document requests</h3><p>Submit requests for school documents without waiting in line at the office.</p></div>
+<div class="fc s2"><div class="ic">&#128242;</div><h3>SMS notifications</h3><p>Get a text when your request is ready for release or completed.</p></div>
+<div class="fc s2"><div class="ic">&#128202;</div><h3>Real-time status tracking</h3><p>Follow every step: Pending, Processing, Ready for Release, or Completed.</p></div>
+<div class="fc s4"><div class="ic">&#128270;</div><h3>Search requests instantly</h3><p>Staff can search by Request ID or Student ID and filter by status.</p></div>
+<div class="fc"><div class="ic">&#128450;</div><h3>Admin dashboard</h3><p>View and manage all requests, change statuses, and manage documents and fees.</p></div>
+<div class="fc"><div class="ic">&#128176;</div><h3>Pay at the cashier</h3><p>Fees are paid directly at the school cashier. No online payment needed.</p></div></div></div></section>
+
+<section id="about"><div class="wrap"><div class="eyebrow"></div><h2>How it works</h2>
+<div class="steps"><div><span>01</span><h3>Fill the form</h3><p>Choose the document you need and give your phone number.</p></div>
+<div><span>02</span><h3>Get your Request ID</h3><p>Copy it. You will use it to track your request.</p></div>
+<div><span>03</span><h3>Staff process it</h3><p>Our team reviews and updates your request status.</p></div>
+<div><span>04</span><h3>Get SMS updates</h3><p>Receive a text when it is ready or completed.</p></div>
+<div><span>05</span><h3>Pick up your document</h3><p>Pay at the cashier and collect your papers.</p></div></div></div></section>
+<footer id="contact"><div class="wrap"><h3>REQFLOW - STI College Lipa</h3><p>Phone: (555) 555-0142 (sample) &middot; Email: registrar@example.edu (sample)<br>Demo notice: data is stored in this browser only and SMS is simulated.</p></div></footer>
+<div id="toast" role="status"></div><script src="script.js"></script></body></html>
