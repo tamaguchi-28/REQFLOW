@@ -50,12 +50,15 @@ async function initHome() {
   $('requestForm').addEventListener('submit', async (e) => {
     e.preventDefault(); let ok = true;
     const rules = { name: (v) => v.trim().length >= 3 || 'Enter your full name.', sid: (v) => /^[0-9-]{5,15}$/.test(v.trim()) || 'Use numbers and dashes, e.g. 2024-00123.',
-      program: (v) => v.trim() !== '' || 'Enter your program.', doc: (v) => v !== '' || 'Select a document.',
+      program: (v) => v.trim() !== '' || 'Enter your program.',
+      year: (v) => v !== '' || 'Select your year level.',
+      doc: (v) => v !== '' || 'Select a document.',
       purpose: (v) => v.trim().length >= 5 || 'Enter the purpose of your request.', contact: (v) => /^(09|\+639)\d{9}$/.test(v.replace(/\s/g, '')) || 'Use a PH mobile number, e.g. 09171234567.' };
     for (const k in rules) { const el = $(k), r = rules[k](el.value); setErr(el, r === true ? '' : r); if (r !== true) ok = false; }
     if (!ok) { toast('Please fix the highlighted fields.'); return; }
     const d = docs.find((x) => x.id == sel.value);
     const r = await API.createRequest({ name: $('name').value.trim(), studentId: $('sid').value.trim(), program: $('program').value.trim(),
+      yearLevel: $('year').value,
       contact: $('contact').value.replace(/\s/g, ''), docName: d.name, fee: d.fee, purpose: $('purpose').value.trim() });
     $('newId').textContent = r.id; $('success').classList.remove('hidden'); e.target.reset(); $('fee').textContent = '-';
     $('rid').value = r.id;
@@ -92,7 +95,7 @@ async function initAdmin() {
     const list = (await API.getRequests()).filter((r) => (!f || r.status === f) && (!q || r.id.toLowerCase().includes(q) || r.studentId.toLowerCase().includes(q))).reverse();
     $('count').textContent = list.length + ' request(s)';
     $('reqBody').innerHTML = list.length ? list.map((r) => `<tr><td><strong>${esc(r.id)}</strong></td>
-      <td>${esc(r.name)}<br><small>${esc(r.studentId)} · ${esc(r.program)}<br>${esc(r.contact)}</small></td>
+      <td>${esc(r.name)}<br><small>${esc(r.studentId)} · ${esc(r.program)} · ${esc(r.yearLevel || '-')}<br>${esc(r.contact)}</small></td>
       <td>${esc(r.docName)}<br><small>${peso(r.fee)} · ${esc(r.purpose)}</small></td><td><small>${fmt(r.submitted)}</small></td><td><small>${fmt(r.updated)}</small></td>
       <td>${badge(r.status)}<br><select data-sel="${r.id}" style="margin-top:.4rem">${STATUSES.map((s) => `<option ${s === r.status ? 'selected' : ''}>${s}</option>`).join('')}</select></td>
       <td><button class="btn sm" data-save="${r.id}">Update</button></td></tr>`).join('')
