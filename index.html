@@ -13,11 +13,12 @@
 <ul class="doclist" id="docList"></ul>
 <div class="cashier">Payment is made directly at the school cashier. There is no online payment.</div></div>
 <div class="card"><div class="success hidden" id="success"><strong>Request submitted!</strong><div class="rid"><span id="newId"></span><button class="btn sm" type="button" id="copyBtn">Copy ID</button></div>
-<p class="small" style="margin:.4rem 0 0">Save this ID. You need it to check your status.</p></div>
+<button class="btn sm alt" type="button" id="againBtn" style="margin-top:.8rem">Submit another request</button></div>
 <form id="requestForm" novalidate>
 <label for="name" style="margin-top:0">Student name</label><input id="name" placeholder="Juan Dela Cruz" autocomplete="name"><div class="err"></div>
 <label for="sid">Student ID</label><input id="sid" placeholder="2024-00123"><div class="err"></div>
-<label for="program">Program</label><input id="program" placeholder="BS Information Technology"><div class="err"></div>
+<label for="program">Program/Strand</label><input id="program" placeholder="e.g. BSIT or STEM"><div class="err"></div>
+<label for="year">Year level</label><select id="year"><option value="">Select year level</option><option>Grade 11</option><option>Grade 12</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select><div class="err"></div>
 <label for="doc">Document needed</label><select id="doc"></select><div class="err"></div>
 <p class="small" style="margin:.5rem 0 0">Fee: <strong id="fee">-</strong> (pay at the cashier)</p>
 <label for="purpose">Purpose of request</label><textarea id="purpose" rows="3" placeholder="e.g. Scholarship Application"></textarea><div class="err"></div>
@@ -52,5 +53,5 @@
 <div><span>03</span><h3>Staff process it</h3><p>Our team reviews and updates your request status.</p></div>
 <div><span>04</span><h3>Get SMS updates</h3><p>Receive a text when it is ready or completed.</p></div>
 <div><span>05</span><h3>Pick up your document</h3><p>Pay at the cashier and collect your papers.</p></div></div></div></section>
-<footer id="contact"><div class="wrap"><h3>REQFLOW - STI College Lipa</h3><p>Phone: (555) 555-0142 (sample) &middot; Email: registrar@example.edu (sample)<br>Demo notice: data is stored in this browser only and SMS is simulated.</p></div></footer>
+<footer id="contact"><div class="wrap"><h3>REQFLOW - STI College Lipa</h3><p>Phone: (555) 555-0142 (sample) &middot; Email: registrar@example.edu (sample)<br>Demo notice: data is saved in this browser only and SMS is simulated.</p></div></footer>
 <div id="toast" role="status"></div><script src="script.js"></script></body></html>

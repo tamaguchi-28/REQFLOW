@@ -20,7 +20,8 @@ header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 1px 6px rgb
 .btn.alt{background:#e4eef5;color:var(--pd)}
 .btn.danger{background:#fde8e6;color:var(--bad)}
 @media(max-width:860px){.links,.phone{display:none}}
-.hero{min-height:560px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,rgba(15,23,42,.78),rgba(15,23,42,.25)),url("hero.png") center 30%/cover,linear-gradient(135deg,#0a4a73,#0a69a3)}.pill{display:inline-block;border:1px solid rgba(255,255,255,.55);border-radius:99px;padding:.35rem 1rem;font-size:.9rem;font-weight:600;margin-bottom:1.2rem}
+.hero{min-height:560px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,rgba(15,23,42,.78),rgba(15,23,42,.25)),url("hero.png") center 30%/cover,linear-gradient(135deg,#0a4a73,#0a69a3)}
+.pill{display:inline-block;border:1px solid rgba(255,255,255,.55);border-radius:99px;padding:.35rem 1rem;font-size:.9rem;font-weight:600;margin-bottom:1.2rem}
 .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);max-width:12ch}
 .hero p{font-size:1.15rem;max-width:34rem;margin:1.2rem 0 1.6rem;color:#e8eef5}
 .hero .btns{display:flex;gap:.8rem;flex-wrap:wrap}
@@ -89,3 +90,23 @@ th{background:var(--bg);color:var(--pd)}
 #toast.show{opacity:1}
 :focus-visible{outline:3px solid #7fb5d6;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* SMS notification simulation */
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:40;overflow-y:auto}
+.modal-box{position:relative;background:#fff;border-radius:14px;max-width:760px;width:100%;padding:1.5rem;box-shadow:0 20px 50px rgba(15,23,42,.3);max-height:100%;overflow-y:auto}
+.modal-x{position:absolute;top:.6rem;right:.8rem;background:none;border:0;font-size:1.7rem;line-height:1;cursor:pointer;color:var(--mute)}
+.simtag{display:inline-block;background:#fff4e0;color:#92400e;border:1px dashed #e29a1b;border-radius:99px;padding:.15rem .8rem;font-size:.75rem;font-weight:700;letter-spacing:.04em;margin:.4rem 0 1rem}
+.pv{display:grid;grid-template-columns:240px 1fr;gap:1.5rem;align-items:start}
+.phone-mock{width:240px;border:8px solid #0f172a;border-radius:28px;background:#eef2f6;overflow:hidden;margin:0 auto}
+.phone-top{background:var(--p);color:#fff;text-align:center;font-weight:700;padding:.7rem .5rem;font-size:.9rem}
+.phone-body{padding:1rem .7rem;min-height:230px}
+.bubble{background:#fff;border-radius:14px 14px 14px 4px;padding:.6rem .75rem;font-size:.82rem;box-shadow:0 1px 3px rgba(15,23,42,.12);overflow-wrap:anywhere}
+.bubble-time{font-size:.68rem;color:var(--mute);margin:.35rem .3rem 0}
+.pv-list{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.45rem 1rem;font-size:.92rem}
+.pv-list dt{color:var(--mute);font-weight:600}
+.pv-list dd{margin:0;overflow-wrap:anywhere}
+.modal-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem}
+.okmsg{margin-top:1rem;background:#dcfce7;color:var(--ok);padding:.7rem 1rem;border-radius:8px;font-weight:700}
+.msgcell{min-width:240px;font-size:.85rem}
+.simnote{margin-top:.8rem;background:#fff4e0;border-left:4px solid #e29a1b;padding:.6rem .8rem;border-radius:4px;font-size:.88rem}
+@media(max-width:640px){.pv{grid-template-columns:1fr}.pv-list{grid-template-columns:1fr}}

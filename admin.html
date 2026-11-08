@@ -7,11 +7,19 @@
 <div class="err" id="loginErr"></div><button class="btn full" type="submit">Log in</button></form>
 <div class="note">Demo login: admin / admin123. This check runs in the browser and is NOT secure. A real system needs server-side login.</div></div>
 <section id="dash" class="hidden" style="padding:0"><h2>Admin dashboard</h2>
-<div class="tabs"><button class="btn alt on" data-tab="tabReq">Requests</button><button class="btn alt" data-tab="tabDocs">Documents &amp; fees</button><button class="btn alt" data-tab="tabSms">SMS simulation</button></div>
+<div class="tabs"><button class="btn alt on" data-tab="tabReq">Requests</button><button class="btn alt" data-tab="tabDocs">Documents &amp; fees</button><button class="btn alt" data-tab="tabSms">SMS Notifications</button></div>
 <div class="card" id="tabReq"><div class="bar"><input id="search" placeholder="Search Request ID or Student ID"><select id="filter"><option value="">All statuses</option><option>Pending</option><option>Processing</option><option>Ready for Release</option><option>Completed</option></select></div>
 <p id="count" class="small"></p><div class="tablewrap"><table><thead><tr><th>ID</th><th>Student</th><th>Document</th><th>Submitted</th><th>Updated</th><th>Status</th><th></th></tr></thead><tbody id="reqBody"></tbody></table></div></div>
 <div class="card hidden" id="tabDocs"><form id="docForm" class="bar" novalidate><div><input id="dname" placeholder="Document name"><div class="err"></div></div><div><input id="dfee" type="number" min="0" step="0.01" placeholder="Fee (PHP)"><div class="err"></div></div><button class="btn" style="flex:0 0 auto" type="submit">Add document</button></form>
 <div class="tablewrap"><table><thead><tr><th>Document</th><th>Fee</th><th></th></tr></thead><tbody id="docBody"></tbody></table></div></div>
-<div class="card hidden" id="tabSms"><div class="note">SIMULATION ONLY. No real SMS is sent. These are the messages a real SMS API would deliver.</div>
-<div class="tablewrap"><table><thead><tr><th>Time</th><th>To</th><th>Message</th></tr></thead><tbody id="smsBody"></tbody></table></div></div></section></main>
+<div class="card hidden" id="tabSms"><div class="note"><strong>SIMULATION ONLY.</strong> Notifications are generated and stored for demonstration. No real SMS is sent and no SMS gateway is connected.</div>
+<h3 style="font-size:1.2rem;margin-bottom:.6rem">SMS Notification History</h3>
+<div class="tablewrap"><table><thead><tr><th>Student</th><th>Mobile</th><th>Request ID</th><th>Type</th><th>Message</th><th>Generated</th><th>Status</th><th></th></tr></thead><tbody id="smsBody"></tbody></table></div></div></section></main>
+<div class="modal hidden" id="smsModal" role="dialog" aria-modal="true" aria-labelledby="smsTitle"><div class="modal-box">
+<button class="modal-x" id="smsClose" aria-label="Close preview">&times;</button>
+<h3 id="smsTitle">SMS Notification Preview</h3><span class="simtag">SIMULATED SMS - NO REAL MESSAGE IS SENT</span>
+<div class="pv"><div class="phone-mock" aria-label="Phone preview"><div class="phone-top">REQFLOW</div><div class="phone-body"><div class="bubble" id="pvMsg"></div><div class="bubble-time" id="pvBubbleTime"></div></div></div>
+<dl class="pv-list"><dt>Student</dt><dd id="pvName"></dd><dt>Mobile number</dt><dd id="pvNum"></dd><dt>Request ID</dt><dd id="pvId"></dd><dt>Notification type</dt><dd id="pvType"></dd><dt>Generated</dt><dd id="pvTime"></dd><dt>Status</dt><dd id="pvStatus"></dd></dl></div>
+<div class="modal-actions"><button class="btn" type="button" id="simBtn">Simulate SMS</button><button class="btn alt" type="button" id="smsLater">Close</button></div>
+<div class="okmsg hidden" id="simOk" role="status">SMS Simulation Successful!</div></div></div>
 <div id="toast" role="status"></div><script src="script.js"></script></body></html>
